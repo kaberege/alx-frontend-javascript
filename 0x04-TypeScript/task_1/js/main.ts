@@ -19,11 +19,12 @@ interface printTeacherFunction {
 }
 
 // Defines class types: StudentClass
-interface ClassTypes {
-    firstName: string;
-    lastName: string;
-    workOnHomework(): string;
-    displayName(): string;
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentInterface;
+}
+interface StudentInterface {
+  workOnHomework(): string;
+  displayName(): string;
 }
 
 // 1. Let's build a Teacher interface
@@ -52,7 +53,7 @@ const printTeacher: printTeacherFunction = (firstName, lastName): string => {
 }
 
 // 4. Writing a class
-class StudentClass implements ClassTypes {
+class StudentClass implements StudentInterface {
     firstName: string;
     lastName: string;
 
